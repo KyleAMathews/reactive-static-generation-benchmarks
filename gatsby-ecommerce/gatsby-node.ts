@@ -32,7 +32,9 @@ export const sourceNodes: GatsbyNode[`sourceNodes`] = async ({
 
       createNode(node)
   } else {
-    const res = await got(`${API}/inventory/1/${PRODUCT_COUNT}`,{ responseType: `json`})
+  const url = `${API}/inventory/1/${PRODUCT_COUNT}`
+  console.log({url})
+    const res = await got(url,{ responseType: `json`})
       const body = res.body
     body.forEach((inventoryLevel, i) => {
       const node = {
