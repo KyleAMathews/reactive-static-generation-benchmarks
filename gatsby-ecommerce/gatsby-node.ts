@@ -13,7 +13,6 @@ const API = process.env.API || `http://localhost:8002/api`
 export const sourceNodes: GatsbyNode[`sourceNodes`] = async ({
   actions,
   webhookBody,
-  createContentDigest,
 }) => {
   const body = webhookBody as webhookBodyType
   const { createNode } = actions

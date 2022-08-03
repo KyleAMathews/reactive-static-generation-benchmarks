@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 export default function Product(props) {
   return <div>
   <h1>{props.data.product.id}</h1>
-  <p>Inventory is: {props.data.product.inventoryLevel}</p>
+  <p>Inventory is: <span id="inventory-level">{props.data.product.inventoryLevel}</span></p>
   </div>
 }
 
