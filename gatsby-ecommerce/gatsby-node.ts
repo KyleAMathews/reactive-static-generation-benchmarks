@@ -31,17 +31,17 @@ export const sourceNodes: GatsbyNode[`sourceNodes`] = async ({
 
       createNode(node)
   } else {
-  const url = `${API}/inventory/1/${PRODUCT_COUNT}`
+  const url = `https://reactive-static-generation-benchmarks-kyleamathews.chiselstrike.io/main/product\?sort\=productId`
   console.log({url})
     const res = await got(url,{ responseType: `json`})
       const body = res.body
-    body.forEach((inventoryLevel, i) => {
+    body.results.forEach(({inventoryLevel, productId}) => {
       const node = {
-        id: i.toString(),
+        id: productId.toString(),
         inventoryLevel,
         internal: {
           type: `Product`,
-          contentDigest: `${i} ${inventoryLevel}`,
+          contentDigest: `${productId} ${inventoryLevel}`,
         }
       }
 
