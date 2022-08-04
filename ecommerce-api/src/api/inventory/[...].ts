@@ -13,6 +13,8 @@ export default function handler(
 ) {
   const params = req.params[`*`].split(`/`)
 
+  console.log(req.method)
+  if (req.method === `GET`) {
   // Return inventory for a product.
   if (params.length == 1) {
   const productId = parseInt(params[0]) - 1
@@ -26,5 +28,16 @@ export default function handler(
     const start = parseInt(params[0]) - 1
     const stop = parseInt(params[1]) - 1
     return res.send(inventory.slice(start, stop))
+  }
+  } else if (req.method === `POST`) {
+    console.log(req.body)
+    if (req.body?.inventoryLevel && req.body?.id) {
+      inventory[req.body.id - 1] = req.body.inventoryLevel
+      console.log(inventory[req.body.id - 1])
+      return res.send(`ok`)
+    } else {
+      console.log(`bad request`)
+      return res.status(400).send(`bad request`)
+    }
   }
 }
