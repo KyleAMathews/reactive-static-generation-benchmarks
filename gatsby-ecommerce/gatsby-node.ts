@@ -7,7 +7,6 @@ type webhookBodyType = {
   inventoryLevel: number
 }
 
-const PRODUCT_COUNT = process.env.PRODUCT_COUNT || 1000
 const API = process.env.API || `http://localhost:8002/api`
 
 export const sourceNodes: GatsbyNode[`sourceNodes`] = async ({
@@ -31,7 +30,7 @@ export const sourceNodes: GatsbyNode[`sourceNodes`] = async ({
 
       createNode(node)
   } else {
-  const url = `https://reactive-static-generation-benchmarks-kyleamathews.chiselstrike.io/main/product\?sort\=productId`
+  const url = `https://reactive-static-generation-benchmarks-kyleamathews.chiselstrike.io/main/product\?sort\=productId&page_size=5000`
   console.log({url})
     const res = await got(url,{ responseType: `json`})
       const body = res.body

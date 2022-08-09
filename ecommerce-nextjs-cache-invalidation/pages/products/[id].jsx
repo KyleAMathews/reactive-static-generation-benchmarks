@@ -1,7 +1,7 @@
 import got from "got"
 
 export async function getStaticPaths() {
-  const url = `https://reactive-static-generation-benchmarks-kyleamathews.chiselstrike.io/main/product\?sort\=productId`
+  const url = `https://reactive-static-generation-benchmarks-kyleamathews.chiselstrike.io/main/product\?sort\=productId&page_size=5000`
   const res = await got(url, { responseType: `json` })
   const body = res.body
   const paths = body.results.map((product) => {
