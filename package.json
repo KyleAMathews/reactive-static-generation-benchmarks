@@ -1,0 +1,37 @@
+{
+  "name": "reactive-static-generation-benchmarks",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "format": "eslint --fix --ext .js,.ts **",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyleAMathews/reactive-static-generation-benchmarks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KyleAMathews/reactive-static-generation-benchmarks/issues"
+  },
+  "homepage": "https://github.com/KyleAMathews/reactive-static-generation-benchmarks#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/eslint-parser": "^7.18.9",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.1.0",
+    "@opentelemetry/auto-instrumentations-node": "0.28.0",
+    "@opentelemetry/exporter-trace-otlp-proto": "0.27.0",
+    "@opentelemetry/sdk-node": "0.27.0",
+    "agentkeepalive": "^4.2.1"
+  }
+}

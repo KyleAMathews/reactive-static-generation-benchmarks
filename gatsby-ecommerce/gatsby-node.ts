@@ -16,36 +16,33 @@ export const sourceNodes: GatsbyNode[`sourceNodes`] = async ({
   const body = webhookBody as webhookBodyType
   const { createNode } = actions
 
-  console.log({ body })
   // Handle webhook if one, otherwise fetch all data.
   if (body.inventoryLevel && body.id) {
-      const node = {
-        id: body.id.toString(),
-        inventoryLevel: body.inventoryLevel,
-        internal: {
-          type: `Product`,
-          contentDigest: `${body.id} ${body.inventoryLevel}`,
-        }
-      }
+    const node = {
+      id: body.id.toString(),
+      inventoryLevel: body.inventoryLevel,
+      internal: {
+        type: `Product`,
+        contentDigest: `${body.id} ${body.inventoryLevel}`,
+      },
+    }
 
-      createNode(node)
+    createNode(node)
   } else {
-  const url = `https://reactive-static-generation-benchmarks-kyleamathews.chiselstrike.io/main/product\?sort\=productId&page_size=5000`
-  console.log({url})
-    const res = await got(url,{ responseType: `json`})
-      const body = res.body
-    body.results.forEach(({inventoryLevel, productId}) => {
+    const url = `https://reactive-static-generation-benchmarks-kyleamathews.chiselstrike.io/main/product\?sort\=productId&page_size=5000`
+    const res = await got(url, { responseType: `json` })
+    const body = res.body
+    body.results.forEach(({ inventoryLevel, productId }) => {
       const node = {
         id: productId.toString(),
         inventoryLevel,
         internal: {
           type: `Product`,
           contentDigest: `${productId} ${inventoryLevel}`,
-        }
+        },
       }
 
       createNode(node)
     })
   }
-
 }

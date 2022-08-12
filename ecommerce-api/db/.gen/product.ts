@@ -1,2 +1,2 @@
-import { Product } from "../models/product";
-export default Product.crud();
+import { Product } from "../models/product"
+export default Product.crud()
