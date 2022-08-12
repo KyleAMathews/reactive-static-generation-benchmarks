@@ -1,6 +1,8 @@
 # reactive-static-generation-benchmarks
 Benchmarks for testing Reactive Static Generation vs SSG/SSR
 
+Learn more at the blog post https://www.gatsbyjs.com/blog/re-introducing-gatsby-a-reactive-site-generator
+
 # Ecommerce benchmark
 
 |   | p50  | p75  | p99  | 
